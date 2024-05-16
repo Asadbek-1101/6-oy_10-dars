@@ -18,12 +18,20 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from shop.views import home, category, batafsil
+from shop.views import home, category, batafsil, create_product, update_product, delete_product
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home, name="home"),
     path('category/<int:id>/', category, name="category"),
     path('batafsil/<int:id>/', batafsil, name="batafsil"),
+    #-----------------------------------------------------
+    path('create_product/', create_product, name="create_product"),
+    path('update_product/<int:id>/', update_product, name="update_product"),
+    path('delete_product/<int:id>/', delete_product, name="delete_product"),
 
-] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

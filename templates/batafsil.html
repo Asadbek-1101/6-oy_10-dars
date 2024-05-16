@@ -12,7 +12,13 @@
                             <span>${{product.price}}</span>
                         </div>
                         <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium at dolorem quidem modi. Nam sequi consequatur obcaecati excepturi alias magni, accusamus eius blanditiis delectus ipsam minima ea iste laborum vero?</p>
-                        <div class="d-flex">
+                        <a href="{% url 'update_product' product.id %}" class="btn btn-outline-secondary">
+                            <i class="fa-regular fa-pen-to-square"></i> Edit
+                        </a>
+                        <a href="{% url 'delete_product' product.id %}" class="btn btn-outline-danger">
+                            <i class="fa-solid fa-trash-can"></i> Delete
+                        </a>
+                        <div>
                         </div>
                     </div>
                 </div>
